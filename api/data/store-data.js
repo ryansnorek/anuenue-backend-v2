@@ -1,6 +1,5 @@
 module.exports = [
   {
-    id: 1,
     name: "Chonky Chip",
     image: "chonky_chip.png",
     description:
@@ -9,7 +8,6 @@ module.exports = [
     qty: 0,
   },
   {
-    id: 2,
     name: "All Your Bread Are Belong To Us",
     image: "bread.png",
     description:
@@ -18,7 +16,6 @@ module.exports = [
     qty: 0,
   },
   {
-    id: 3,
     name: "Based Brownies",
     image: "rainbow.png",
     description:
@@ -27,7 +24,6 @@ module.exports = [
     qty: 0,
   },
   {
-    id: 4,
     name: "Champ's Elycakes",
     image: "balls.png",
     description:
@@ -36,7 +32,6 @@ module.exports = [
     qty: 0,
   },
   {
-    id: 5,
     name: "Power Bitch Balls",
     image: "balls.png",
     description:
@@ -45,7 +40,6 @@ module.exports = [
     qty: 0,
   },
   {
-    id: 6,
     name: "Green Brrrrito",
     image: "bread.png",
     description:
@@ -54,7 +48,6 @@ module.exports = [
     qty: 0,
   },
   {
-    id: 7,
     name: "They Cookies",
     image: "chonky_chip.png",
     description:
@@ -63,7 +56,6 @@ module.exports = [
     qty: 0,
   },
   {
-    id: 8,
     name: "Hat",
     image: "merch.png",
     description: "Headwear for the fashionablest beings",
@@ -71,7 +63,6 @@ module.exports = [
     qty: 0,
   },
   {
-    id: 9,
     name: "Comfy Swetter",
     image: "merch.png",
     description: "Finest materials for you to be cozy",
@@ -79,7 +70,6 @@ module.exports = [
     qty: 0,
   },
   {
-    id: 10,
     name: "Ellegant Jammies",
     image: "merch.png",
     description: "Procrastinate in style",
