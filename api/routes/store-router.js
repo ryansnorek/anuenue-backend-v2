@@ -1,9 +1,10 @@
 const router = require("express").Router();
 
-const store = require("../data/store-data");
+const Store = require("../data/store-model");
 
 router.get("/", (req, res, next) => {
-  res.json(store);
+  const storeItems = Store.getAllItems();
+  res.json(storeItems);
 });
 
 module.exports = router;
