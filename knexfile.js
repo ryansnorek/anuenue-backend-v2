@@ -1,5 +1,9 @@
 require("dotenv").config();
 
+if (process.env.DATABASE_URL) {
+  pg.defaults.ssl = { rejectUnauthorized: false };
+}
+
 module.exports = {
   development: {
     client: "pg",
