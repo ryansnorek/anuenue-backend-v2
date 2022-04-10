@@ -1,7 +1,14 @@
-const router = require('express').Router();
+const router = require("express").Router();
 
-router.post('/', (req, res) => {
-    res.json('POST admin')
-})
+const passcode = require("../data/admin-data");
+
+router.post("/", (req, res, next) => {
+  try {
+    const { pass } = req.body;
+    res.json(pass === passcode);
+  } catch (err) {
+    next(err);
+  }
+});
 
 module.exports = router;
