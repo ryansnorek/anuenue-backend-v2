@@ -18,34 +18,28 @@ function updateImage(id, img) {
   return db("store_items").where("item_id", id).update(img);
 }
 
-// function getItemById(id) {
-//   return storeItems.find((item) => item.id === id);
-// }
+function getLineItems(order) {
+  return order.map((item) => {
+    const product = getItemById(item.id);
+    const lineItem = {
+      price: product.price,
+      quantity: item.qty,
+    };
+    return lineItem;
+  });
+}
 
-// function getLineItems(order) {
-//   return order.map((item) => {
-//     const product = getItemById(item.id);
-//     const lineItem = {
-//       price: product.price,
-//       quantity: item.qty,
-//     };
-//     return lineItem;
-//   });
-// }
-
-// function getOrderTotal(orderItems) {
-//   return orderItems.reduce((total, item) => {
-//     return (total += item.price);
-//   }, 0);
-// }
+function getOrderTotal(orderItems) {
+  return orderItems.reduce((total, item) => {
+    return (total += item.price);
+  }, 0);
+}
 
 module.exports = {
   getAllItems,
   getItemByID,
   updateItem,
   updateImage,
-  
-  // getItemById,
-  // getLineItems,
-  // getOrderTotal,
+  getLineItems,
+  getOrderTotal,
 };
