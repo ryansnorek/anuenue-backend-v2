@@ -19,8 +19,8 @@ function updateImage(id, img) {
 }
 
 function getLineItems(order) {
-  return order.map((item) => {
-    const product = getItemById(item.id);
+  return order.map(async (item) => {
+    const product = await getItemByID(item.id);
     const lineItem = {
       price: product.price,
       quantity: item.qty,

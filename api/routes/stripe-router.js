@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY);
-const { getOrderTotal, getLineItems } = require("../data/store-data");
+const { getOrderTotal, getLineItems } = require("../models/store-model");
 
 router.post("/create-payment-intent", async (req, res) => {
   const { order } = req.body;
