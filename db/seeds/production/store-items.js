@@ -71,7 +71,7 @@ exports.seed = async function (knex) {
         food: false,
       },
       {
-        name: "Ellegant Jammies",
+        name: "Jimmy Jams",
         image: "merch.png",
         description: "Procrastinate in style",
         price: 6000,
