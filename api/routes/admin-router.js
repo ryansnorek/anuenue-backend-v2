@@ -33,16 +33,14 @@ router.post("/upload/:id", upload.single("image"), (req, res, next) => {
   // const image = { pic: req.file.filename };
   const image = { pic: req.file };
 
-  res.json(image)
-
-  // Admin.updateImage(id, image)
-  //   .then((res) => {
-  //     res.json({ updated: res });
-  //   })
-  //   .catch((err) => {
-  //     res.json(image)
-  //     next(err);
-  //   });
+  Admin.updateImage(id, image)
+    .then((res) => {
+      res.json({ updated: res });
+    })
+    .catch((err) => {
+      res.json(image)
+      next(err);
+    });
 });
 
 module.exports = router;
