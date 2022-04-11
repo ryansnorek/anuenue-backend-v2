@@ -32,10 +32,10 @@ router.post("/upload/:id", upload.single("image"), (req, res, next) => {
   const { id } = req.params;
   const image = {
     pic: req.file,
-    image: req.file.filename,
+    // image: req.file.filename,
   };
 
-  Admin.updateImage(id, image)
+  Admin.insertImage(id, image)
     .then((res) => {
       res.json({ updated: res });
     })
