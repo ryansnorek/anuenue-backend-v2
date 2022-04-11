@@ -7,6 +7,7 @@ const helmet = require("helmet");
 server.use(helmet());
 server.use(cors());
 server.use(express.json());
+server.use(express.static("images"));
 
 const adminRouter = require("./api/routes/admin-router");
 const storeRouter = require("./api/routes/store-router");
