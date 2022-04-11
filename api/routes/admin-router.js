@@ -6,7 +6,7 @@ const Admin = require("../models/admin-model");
 
 router.post("/", (req, res, next) => {
   const { pass } = req.body;
-  
+
   if (pass === passcode) {
     res.json(token);
   } else {
@@ -30,7 +30,8 @@ router.put("/items/:id", (req, res, next) => {
 
 router.post("/upload/:id", upload.single("image"), (req, res, next) => {
   const { id } = req.params;
-  const image = { pic: req.file.filename };
+  // const image = { pic: req.file.filename };
+  const image = { pic: req.file };
 
   Admin.updateImage(id, image)
     .then((res) => {
