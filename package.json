@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "migrateh": "heroku run knex migrate:latest -a anuenue-backend-v2"
+    "migrateh": "heroku run knex migrate:latest -a anuenue-backend-v2",
+    "seedh": "heroku run knex seed:run -a anuenue-backend-v2"
   },
   "repository": {
     "type": "git",

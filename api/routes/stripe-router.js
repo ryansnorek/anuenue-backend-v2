@@ -4,7 +4,7 @@ const { getOrderTotal, getLineItems } = require("../models/store-model");
 
 router.post("/create-payment-intent", async (req, res) => {
   const { order } = req.body;
-  const lineItems = getLineItems(order);
+  const lineItems = await getLineItems(order);
   const total = getOrderTotal(lineItems);
 
   const paymentIntent = await stripe.paymentIntents.create({

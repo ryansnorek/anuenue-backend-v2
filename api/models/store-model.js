@@ -18,14 +18,13 @@ function updateImage(id, img) {
   return db("store_items").where("item_id", id).update(img);
 }
 
-function getLineItems(order) {
-  return order.map(async (item) => {
-    const product = await getItemByID(item.id);
-    const lineItem = {
-      price: product.price,
+async function getLineItems(order) {
+  return order.map((item) => {
+    const product = getItemByID(item.id);
+    return {
+      price: 1000,
       quantity: item.qty,
     };
-    return lineItem;
   });
 }
 
@@ -34,6 +33,7 @@ function getOrderTotal(orderItems) {
     return (total += item.price);
   }, 0);
 }
+
 
 module.exports = {
   getAllItems,
