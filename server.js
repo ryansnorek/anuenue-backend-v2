@@ -6,7 +6,7 @@ const helmet = require("helmet");
 
 server.use(helmet());
 server.use(
-  cors({ origin: ["http://localhost:3000", "https://anuenue.netlify.app"] })
+  cors({ origin: "*" })
 );
 server.use(express.json());
 server.use(express.static("images"));
