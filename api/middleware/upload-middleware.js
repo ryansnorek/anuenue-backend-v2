@@ -11,7 +11,7 @@ const fileFilter = (req, file, cb) => {
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, path.resolve(__dirname, "build"));
+    cb(null, "../images");
   },
   filename: (req, file, cb) => {
     cb(null, file.originalname);

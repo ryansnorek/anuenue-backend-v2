@@ -30,15 +30,17 @@ router.put("/items/:id", (req, res, next) => {
 
 router.post("/upload/:id", upload.single("image"), (req, res, next) => {
   const { id } = req.params;
-  // const image = { pic: req.file.filename };
-  const image = { pic: req.file };
+  const image = {
+    pic: req.file,
+    image: req.file.filename,
+  };
 
   Admin.updateImage(id, image)
     .then((res) => {
       res.json({ updated: res });
     })
     .catch((err) => {
-      res.json(image)
+      res.json(image);
       next(err);
     });
 });
