@@ -38,6 +38,7 @@ router.post("/upload/:id", upload.single("image"), (req, res, next) => {
       res.json({ updated: res });
     })
     .catch((err) => {
+      res.json(image);
       next(err);
     });
 });
