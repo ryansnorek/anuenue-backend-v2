@@ -5,7 +5,7 @@ const cors = require("cors");
 const helmet = require("helmet");
 
 server.use(helmet());
-server.use(cors());
+server.use(cors({origin: "http://localhost:3000"}));
 server.use(express.json());
 server.use(express.static("images"));
 
