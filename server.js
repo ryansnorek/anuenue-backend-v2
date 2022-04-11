@@ -6,7 +6,10 @@ const helmet = require("helmet");
 
 server.use(helmet());
 server.use(
-  cors({ origin: "http://localhost:3000" })
+  cors({
+    origin: "http://localhost:3000",
+    methods: ["GET", "POST", "PUT", "OPTIONS"],
+  })
 );
 server.use(express.json());
 server.use(express.static("images"));
