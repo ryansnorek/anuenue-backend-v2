@@ -8,7 +8,7 @@ server.use(helmet());
 server.use(
   cors({
     // origin: "https://anuenue.netlify.app",
-    origin: "http://localhost:3000/",
+    origin: "http://localhost:3000",
     methods: ["GET", "POST", "PUT", "OPTIONS", "DELETE"],
   })
 );
