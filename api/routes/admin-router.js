@@ -1,7 +1,9 @@
 const router = require("express").Router();
 
 const { passcode, token } = require("../data/admin-data");
-const { upload } = require("../middleware/upload-middleware");
+// const { upload } = require("../middleware/upload-middleware");
+const multer = require("multer");
+const upload = multer({ dest: "uploads/" })
 const Admin = require("../models/admin-model");
 
 router.post("/", (req, res, next) => {
@@ -10,7 +12,7 @@ router.post("/", (req, res, next) => {
   if (pass === passcode) {
     res.json(token);
   } else {
-    next({
+    res.json({
       message: "invalid",
     });
   }
@@ -27,22 +29,28 @@ router.put("/items/:id", (req, res, next) => {
       next(err);
     });
 });
+const fs = require('fs');
 
-router.post("/upload/:id", upload.single("image"), (req, res, next) => {
+router.post("/upload/:id", upload.single("image"), async (req, res, next) => {
   const { id } = req.params;
-  const image = {
-    pic: req.file,
-    // image: req.file.filename,
-  };
+  console.log(req.file)
+  // const bitmap = fs.readFileSync(req.file.filename);
 
-  Admin.insertImage(id, image)
-    .then((res) => {
-      res.json({ updated: res });
-    })
-    .catch((err) => {
-      res.sendFile(req.file);
-      next(err);
-    });
+  // const base64 = new Buffer(bitmap).toString('base64');
+// console.log(bitmap, "bitmapppppp-==--=-=")
+  // console.log(base64);
+
+  // const image = {
+  //   image: req.file.filename,
+  // };
+
+  // Admin.insertImage(id, {image: base64})
+  //   .then((res) => {
+  //     res.json({ updated: res });
+  //   })
+  //   .catch((err) => {
+  //     next(err);
+  //   });
 });
 
 module.exports = router;
