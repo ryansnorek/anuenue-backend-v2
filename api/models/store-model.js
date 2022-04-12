@@ -18,6 +18,10 @@ function updateImage(id, img) {
   return db("store_items").where("item_id", id).update(img);
 }
 
+function deleteItem(id) {
+  return db("store_items").where("item_id", id).delete();
+}
+
 async function getLineItems(order) {
   return order.map((item) => {
     const product = getItemByID(item.id);
@@ -40,6 +44,7 @@ module.exports = {
   getItemByID,
   updateItem,
   updateImage,
+  deleteItem,
   getLineItems,
   getOrderTotal,
 };

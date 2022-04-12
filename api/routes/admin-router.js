@@ -3,7 +3,7 @@ const router = require("express").Router();
 const { passcode, token } = require("../data/admin-data");
 // const { upload } = require("../middleware/upload-middleware");
 const multer = require("multer");
-const upload = multer({ dest: "uploads/" })
+const upload = multer({ dest: "uploads/" });
 const Admin = require("../models/admin-model");
 
 router.post("/", (req, res, next) => {
@@ -29,15 +29,15 @@ router.put("/items/:id", (req, res, next) => {
       next(err);
     });
 });
-const fs = require('fs');
+const fs = require("fs");
 
 router.post("/upload/:id", upload.single("image"), async (req, res, next) => {
   const { id } = req.params;
-  console.log(req.file)
+  console.log(req.file);
   // const bitmap = fs.readFileSync(req.file.filename);
 
   // const base64 = new Buffer(bitmap).toString('base64');
-// console.log(bitmap, "bitmapppppp-==--=-=")
+  // console.log(bitmap, "bitmapppppp-==--=-=")
   // console.log(base64);
 
   // const image = {
@@ -51,6 +51,14 @@ router.post("/upload/:id", upload.single("image"), async (req, res, next) => {
   //   .catch((err) => {
   //     next(err);
   //   });
+});
+
+router.delete("/items/:id", async (req, res, next) => {
+  Admin.deleteItem(req.params.id)
+    .then((res) => {
+      res.json(res.data);
+    })
+    .catch((err) => next(err));
 });
 
 module.exports = router;
