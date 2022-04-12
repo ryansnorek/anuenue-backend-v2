@@ -7,8 +7,9 @@ const helmet = require("helmet");
 server.use(helmet());
 server.use(
   cors({
-    origin: "https://anuenue.netlify.app",
-    methods: ["GET", "POST", "PUT", "OPTIONS"],
+    // origin: "https://anuenue.netlify.app",
+    origin: "http://localhost:3000/",
+    methods: ["GET", "POST", "PUT", "OPTIONS", "DELETE"],
   })
 );
 server.use(express.json());
